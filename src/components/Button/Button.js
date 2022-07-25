@@ -1,9 +1,10 @@
 import React from 'react'
+import './Button.css'
 
 const Button = ({ handleClick, color, children }) => {
     
     return (
-        <button onClick={handleClick} style={{ color: color}}>
+        <button className='navItems' onClick={handleClick} style={{ color: color}}>
             {children}
         </button>
     )

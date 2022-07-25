@@ -1,4 +1,5 @@
 import './Navbar.css'
+import React from 'react'
 import Button from '../Button/Button'
 import CartWidget from '../CartWidget/CartWidget'
 const Navbar = () => {
@@ -12,12 +13,12 @@ const Navbar = () => {
     return (
         <nav className="Navbar">
             <div>
-                <h1>Ecommerce</h1>
+            <img src='images/logoLL.png' alt='Logo'/>
             </div>
             <div>
-                <Button handleClick={handleClick} color='blue'>Cartucheras</Button>
-                <Button color='pink'>Cuadernos</Button>
-                <Button color='purple'>Lápices</Button>
+                <Button handleClick={handleClick} color='#5265c4'>Cuadernos</Button>
+                <Button color='#5265c4'>Accesorios</Button>
+                <Button color='#5265c4'>Papelería</Button>
             </div>
             <CartWidget />
         </nav>
