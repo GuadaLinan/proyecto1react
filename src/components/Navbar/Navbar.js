@@ -12,13 +12,13 @@ const Navbar = () => {
 
     return (
         <nav className="Navbar">
-            <div>
+            <div className="logo">
             <img src='images/logoLL.png' alt='Logo'/>
             </div>
             <div>
-                <Button handleClick={handleClick} color='#5265c4'>Cuadernos</Button>
-                <Button color='#5265c4'>Accesorios</Button>
-                <Button color='#5265c4'>Papelería</Button>
+                <Button handleClick={handleClick}>Cuadernos</Button>
+                <Button handleClick={handleClick}>Accesorios</Button>
+                <Button handleClick={handleClick}>Papelería</Button>
             </div>
             <CartWidget />
         </nav>

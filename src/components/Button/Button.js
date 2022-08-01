@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Button.css'
 
-const Button = ({ handleClick, color, children }) => {
-    
+const Button = () => {
+
+   
+    const handleClick = () => {
+        console.log('Se hizo click')
+    }
+
+    useEffect(() => {
+        const button = document.getElementById('button')
+        
+        button.addEventListener('click', handleClick)
+
+        return () => {
+            button.removeEventListener('click', handleClick)
+        }
+    }, [])
+
+ 
+
     return (
-        <button className='navItems' onClick={handleClick} style={{ color: color}}>
-            {children}
-        </button>
+        <button className='botonesNav' id='button'>Botón</button>
     )
 }
 
