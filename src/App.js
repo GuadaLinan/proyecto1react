@@ -6,7 +6,7 @@ import Counter from './components/Counter/Counter';
 function App() {
 
   const handleOnAdd = (quantity) => {
-    console.log(`la cantidad agregada es: ${quantity}`)
+    console.log(`La cantidad agregada es: ${quantity}`)
   }
 
   return (
