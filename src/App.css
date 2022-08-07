@@ -5,9 +5,11 @@
 }
 
 .App {
-  background: #abb0f0;
-  background-position: cover;
-  height: 100%;
+  width: 100%;
+  /* background: #abb0f0; */
+  background-size: 400% 400%;
+  background: linear-gradient(-45deg, #23A,#abb0f0, #EE7752);
+  position: relative;
 }
 
 @font-face {

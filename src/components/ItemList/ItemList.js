@@ -1,41 +1,52 @@
 import React, { useEffect, useState } from 'react';
 import Item from "../Item/Item"
-import { productList } from '../data/data.js';
+import { getProducts, getProductsByCategory } from '../data/data.js';
 import './ItemList.css'
+import { useParams } from 'react-router-dom';
 
 
 const ItemList = () => {
     const [products, setProducts] = useState([]);
-  
-    const getProducts = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        if (true) {
-          resolve(productList);
-        } else {
-          // reject(error);
-        }
-      }, 2000);
-    });
-  
-    const getProductsFromDB = async () => {
-      try {
-        const result = await getProducts;
-        setProducts(result);
-      } catch (error) {
-        console.error(error);
-        alert('No podemos mostrar los productos en este momento');
-      }
-    };
-  
-    useEffect(() => {
-      getProductsFromDB();
-    }, []); 
+    
+    const [loading , setLoading] = useState(true)
+
+    const {categoryId} = useParams()
+
+  useEffect(()=>{
+    setLoading(true)
+    if (categoryId) {
+      getProductsByCategory(categoryId)  
+      .then(response =>{
+        setProducts(response)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(()=>{
+        setLoading(false)
+      })
+    } else{
+      getProducts()
+      .then(response => {
+        setProducts(response)
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(()=>{
+        setLoading(false)
+      })
+    }
+      
+  },[categoryId]);
+
+  if (loading) {
+    return <h1 className='cargarProductos'>Cargando productos...</h1>
+    
+  }
   
     return (
       <div className="product-list-container">
-        {
-          products.length ? ( 
-            <>
               {
                 products.map((product) => {
                   return (
@@ -50,14 +61,8 @@ const ItemList = () => {
                   );
                 })
               }
-            </>
-          ) : (
-            <p>Cargando productos...</p>
-          ) 
-        }
       </div>
     );
   };
   
   export default ItemList;
-  
