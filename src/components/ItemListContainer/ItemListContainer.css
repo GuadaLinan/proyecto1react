@@ -1,0 +1,15 @@
+.itemListContainer {
+    width: 100%;
+    min-height: 60vh;
+    padding: 30px;
+    margin-bottom: 60px;
+    }
+  
+  .itemLC-title {
+    color: aliceblue;
+    text-align: center;
+    margin: 30px 0;
+    font-size: 3rem;
+    font-family: NunitoImportant;
+  }
+  

@@ -1,28 +1,35 @@
+import React from 'react'
+import { useState, useEffect } from 'react';
 import './ItemListContainer.css'
-import { useState, useEffect } from 'react'
-import { getProducts } from '../../asyncMock'
-
 import ItemList from '../ItemList/ItemList'
+import { useParams } from 'react-router-dom';
+import {getProducts, getProductsByCategory} from '../data/data.js'
 
-const ItemListContainer = ({ greeting }) => {
-    const [products, setProducts] = useState([])
+const ItemListContainer = ({greeting}) => {
+    const [productList, setProducts] = useState([])
+    const {categoryId} = useParams ()
 
     useEffect(() => {
-        getProducts().then(products => {
-            setProducts(products)
-        })
-    }, [])
+        if(!categoryId) {
+            getProducts().then(productList => {
+                setProducts(productList)
+            })
+        } else {
+            getProductsByCategory(categoryId).then(productList => {
+                setProducts(productList)
+            })
+        }
+    }, [categoryId])
 
-    return (
-        <>
-            <h1>{greeting}</h1>
-            {/* <ul>
-                {products.map(prod => <li key={prod.id}>{prod.name}</li>)}
-            </ul>         */}
-            <ItemList products={products}/>
-        </>
 
-    )
+return (
+    <section className="itemListContainer">
+        <h1>{greeting}</h1>
+        <h2 className="itemLC-title">Novedades</h2>
+         <ItemList productList={productList}/>
+    </section>
+)
 }
 
-export default ItemListContainer
+
+export default ItemListContainer;

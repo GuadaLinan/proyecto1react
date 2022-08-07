@@ -6,7 +6,18 @@
 
 .App {
   background: #abb0f0;
+  background-position: cover;
   height: 100%;
+}
+
+@font-face {
+  font-family: NunitoImportant;
+  src: url(fonts/Nunito-VariableFont_wght.ttf);
+}
+
+@font-face {
+  font-family: NunitoNormal;
+  src: url(fonts/NunitoSans-Light.ttf);
 }
 
 /* .App {
