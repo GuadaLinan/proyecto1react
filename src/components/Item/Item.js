@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import './Item.css'
 
 const Item = ({ name, thumbnail, price, id, stock }) => {
-    const onAdd = (qty) => {
-      qty + 1 ? alert(`Has agregado ${qty} productos al carrito`) : alert("Has agregado 1 producto al carrito");
+    
+
+  const onAdd = (qty) => {
+      qty + 1 ? alert(`Has agregado ${qty} productos al carrito`) : alert('Has agregado 1 producto al carrito');
     };
   
     return (
