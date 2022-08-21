@@ -1,14 +1,8 @@
 import React from 'react';
-import Counter from '../Counter/Counter.js';
 import { Link } from 'react-router-dom';
 import './Item.css'
 
-const Item = ({ name, thumbnail, price, id, stock }) => {
-    
-
-  const onAdd = (qty) => {
-      qty + 1 ? alert(`Has agregado ${qty} productos al carrito`) : alert('Has agregado 1 producto al carrito');
-    };
+const Item = ({ name, thumbnail, price, id }) => {
   
     return (
       <article className="productCard">
@@ -18,7 +12,6 @@ const Item = ({ name, thumbnail, price, id, stock }) => {
         <footer className='ItemFooter'>
                 <Link to={`/detail/${id}`} className='Option ButtonDetail'>Ver detalle</Link>
         </footer>
-        <Counter stock={stock} onAdd={onAdd} initial={1} />
       </article>
     );
   };

@@ -14,7 +14,8 @@ export const CartContextProvider = ({ children }) => {
                 if(prod.id === productToAdd.id) {
                     const productUpdated = {
                         ...prod,
-                        quantity: productToAdd.quantity
+                        quantity: productToAdd.quantity,
+                        total: productToAdd.quantity*productToAdd.price
                     }
                     return productUpdated
                 } else {
@@ -26,17 +27,13 @@ export const CartContextProvider = ({ children }) => {
         }
     }
 
-    const clearCart = () => {
-        setCart([])
+    const isInCart = (id) => {
+        return cart.some(prod => prod.id === id)
     }
 
     const removeItem = (id) => {
         const newCartWithoutProduct = cart.filter(prod => prod.id !== id)
         setCart(newCartWithoutProduct)
-    }
-
-    const isInCart = (id) => {
-        return cart.some(prod => prod.id === id)
     }
 
     const getQuantity = () => {
@@ -55,8 +52,16 @@ export const CartContextProvider = ({ children }) => {
         return product?.quantity
     }
 
+    const clearCart = () => {
+        setCart([])
+    }
+
+    const total = cart.reduce((acc, sum) => {
+        return acc + sum.total
+    }, 0)
+
     return (
-        <CartContext.Provider value={{ cart, addItem, getQuantity, isInCart, removeItem, clearCart, getProductQuantity }}>
+        <CartContext.Provider value={{ cart, addItem, getQuantity, isInCart, removeItem, clearCart, getProductQuantity, total}}>
             {children}
         </CartContext.Provider>
     )

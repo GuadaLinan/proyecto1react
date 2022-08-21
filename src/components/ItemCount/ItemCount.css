@@ -5,6 +5,7 @@
     align-items: center;
     width: 300px;
     margin: auto;
+    font-family: NunitoImportant;
 }
 
 .Button {
@@ -13,7 +14,6 @@
     margin: 0 30px;
     width: auto;
     padding: 12px;
-    font-size: 8px;
     background: #10152f;
     border-radius: 8px;
     display: flex;
@@ -27,17 +27,18 @@
     border-style: none;
     cursor: pointer;
     outline: inherit;
-    font-size: larger;
 }
 
 .Number {
-    font-size: 20px;
+    font-size: 25px;
     padding: 20px;
     margin: 0;
     order: 1;
+    color: aliceblue;
 }
 
 .Controls {
     display: flex;
     justify-content: center;
+    
 }

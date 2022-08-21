@@ -6,14 +6,13 @@ import CartContext from '../../context/CartContext'
 
 const ItemDetail = ({ id, name, thumbnail, category, description, price, stock }) => {
     const [quantityToAdd, setQuantityToAdd] = useState(0)
-
     const { addItem, getProductQuantity } = useContext(CartContext)
 
     const handleOnAdd = (quantity) => {
         setQuantityToAdd(quantity)
 
         const productToAdd = {
-            id, name, price, quantity
+            id, name, price, quantity, total: (price*quantity)
         }
 
         addItem(productToAdd)
@@ -28,9 +27,9 @@ const ItemDetail = ({ id, name, thumbnail, category, description, price, stock }
                     {name}
                 </h2>
             </header>
-            <picture>
+            <div className='centrar'>
                 <img src={thumbnail} alt={name} className="ItemImg"/>
-            </picture>
+            </div>
             <section>
                 <p className="Info">
                     Categoria: {category}
@@ -47,7 +46,7 @@ const ItemDetail = ({ id, name, thumbnail, category, description, price, stock }
                     quantityToAdd === 0 ? (
                         <ItemCount onAdd={handleOnAdd} stock={stock} initial={productQuantity}/>
                     ) : (
-                        <Link to='/cart'>Finalizar compra</Link>
+                        <Link to='/Cart'>Finalizar compra</Link>
                     )
                 }
             </footer>

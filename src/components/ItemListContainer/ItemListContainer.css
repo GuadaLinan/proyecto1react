@@ -2,7 +2,9 @@
     width: 100%;
     min-height: 60vh;
     padding: 30px;
-    margin-bottom: 60px;
+    box-sizing: border-box;
+    background: linear-gradient(-45deg, #23A,#abb0f0, #EE7752);
+    
     }
   
   .itemLC-title {

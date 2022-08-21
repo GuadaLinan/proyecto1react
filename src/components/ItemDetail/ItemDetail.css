@@ -1,7 +1,8 @@
 .CardItem {
     width: 500px;
-    padding: 30px;
-    margin: 30px;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
     font-size: 10px;
     background-color: #5265c4;
     border: 1px solid #e1e1e1;
@@ -18,10 +19,15 @@
 .ItemHeader {
     display: flex;
     justify-content: center;
+    font-family: NunitoImportant;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: aliceblue;
 }
 
 .Info {
-    font-size: 12px;
+    font-size: 1rem;
+    color: aliceblue;
     display: flex;
     justify-content: space-around;
 }
@@ -50,7 +56,9 @@
 .ItemImg {
     width: 100px;
     height: 100px;
-    object-fit: cover;
-    object-position: center;
-    align-items: center;
+    text-align: center;
+}
+
+.centrar {
+    text-align: center;
 }

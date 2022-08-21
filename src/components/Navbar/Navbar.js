@@ -17,7 +17,7 @@ const Navbar = () => {
                 <Link to='/category/accesorios' className='botonesNav'>Accesorios</Link>
                 <Link to='/category/papeleria' className='botonesNav'>Papelería</Link>
             </div>
-            <CartWidget />
+            <Link to='Cart' className='link'><CartWidget/></Link> {/* <CartWidget /> */}
         </nav>
     )
 }

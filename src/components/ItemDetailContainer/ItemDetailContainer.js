@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import { getProductById } from "../data/data"
 import ItemDetail from "../ItemDetail/ItemDetail"
+import './ItemDetailContainer.css'
 import { useParams } from "react-router-dom"
 
 const ItemDetailContainer = () => {
@@ -19,8 +20,7 @@ const ItemDetailContainer = () => {
     },[productListId])
 
     return (
-        <div>
-            <h1>Detalle</h1>
+        <div className="Detalle">
             <ItemDetail {...productList}/>
         </div>
     )
