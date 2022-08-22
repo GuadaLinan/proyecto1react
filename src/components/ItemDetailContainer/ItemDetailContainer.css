@@ -9,3 +9,11 @@
 .Detalle {
     padding: 5rem;
 }
+
+.cargarProductos {
+    text-align: center;
+    padding-top: 30px;
+    font-family: NunitoNormal;
+    color: #10152f;
+    font-size: 30px;
+  }

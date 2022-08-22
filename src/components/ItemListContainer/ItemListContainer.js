@@ -6,7 +6,7 @@ import { getDocs, collection, query, where } from 'firebase/firestore'
 import { dataBase } from '../../services/firebase'
 import './ItemListContainer.css'
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
     const [products, setProducts] = useState([])
     const [loading, setLoading] = useState(true)
     const { categoryId } = useParams()
@@ -39,7 +39,7 @@ const ItemListContainer = ({ greeting }) => {
     }
     return (
         <div className='itemListContainer' onClick={() => console.log('click en itemlistcontainer')}>
-        <h1>{`${greeting} ${categoryId || ''}`}</h1>         
+        <h1>{`${categoryId || ''}`}</h1>         
         <h2 className="itemLC-title">Novedades</h2>
             <ItemList products={products} />
         </div>

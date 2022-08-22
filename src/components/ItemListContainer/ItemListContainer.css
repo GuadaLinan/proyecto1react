@@ -7,6 +7,13 @@
     
     }
   
+    .itemListContainer h1{
+      font-size: 2rem;
+      color: #23A;
+      text-transform: uppercase;
+      text-align: center;
+      font-family: NunitoNormal;
+    }
   .itemLC-title {
     color: aliceblue;
     text-align: center;
