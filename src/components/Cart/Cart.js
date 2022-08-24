@@ -49,8 +49,8 @@ const CartDetail = () =>{
                 {cart.length !== 0 && (
                     <div className='containerButton'>
                     <button className='col-auto button' onClick={clearCart}>Vaciar carrito</button>
-                    <Link className='col-auto button' to='/'>Ver más productos</Link>
-                    <button className='col-auto button'>Iniciar compra</button>
+                    <Link className='col-auto button' to='/'>Seguir viendo</Link>
+                    <Link to='/checkout'>Checkout</Link>
             </div>)}
         </div>
     )
