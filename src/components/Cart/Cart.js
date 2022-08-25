@@ -1,59 +1,102 @@
-import CartContext from '../../context/CartContext';
-import {useContext} from 'react';
-import {Link} from 'react-router-dom'
 import './Cart.css'
+import CartContext from "../../context/CartContext"
+import { useContext} from "react"
+import { Link } from 'react-router-dom'
 
-const CartDetail = () =>{
-    const {cart, clearCart, removeItem, total} = useContext(CartContext)
+const CartDetail = ()=>{
 
+    const { cart, removeItem, clearCart, getQuantity, total } = useContext(CartContext)
 
-    return(
+    let productsInCart = getQuantity()
+
+    let finalPrice = total();
+
+    return (
+
         <div className='cart'>
-            <h1 className='cart'>{cart.length === 0 ? (<>
-                    <h1 className='cart'>El carrito está vacío</h1>
-                    <Link className='col-auto button' to='/'>Seguir comprando</Link>
-                </>) :  'Tu carrito'}</h1>
-                <section>
-                    <thead>
-                     <tr>
-                     <th/>
-                      <th>Productos</th>
-                      <th>Precio</th>
-                      <th>Cantidad</th>
-                      <th>Total</th>
-                      </tr>
-                  </thead>
-                 <tbody>
-                    {cart.map((u) => {
-                        return (
-                        <tr key={u.id}>
-                        <td>
-                            <img src='/images/eliminarCarrito.png' width={30} alt='delete' onClick={() => removeItem(u.id) } id={u.id}/>
-                        </td>
-                        <td>
-                            <Link className='linkProduct' to={`../Detail/${u.id}`}>
-                                {u.name}
-                            </Link>
-                        </td>
-                        <td>${u.price}</td>
-                        <td>{u.quantity}</td>
-                        <td>${u.total}</td>
-                        </tr>)
-                    })}
-                     <tr>
-                     <td colSpan={4}>Total</td>
-                     <td>${total}</td>
-                     </tr>
-                 </tbody>
-                </section>
-                {cart.length !== 0 && (
-                    <div className='containerButton'>
-                    <button className='col-auto button' onClick={clearCart}>Vaciar carrito</button>
-                    <Link className='col-auto button' to='/'>Seguir viendo</Link>
-                    <Link to='/checkout'>Checkout</Link>
-            </div>)}
+
+            <div className='productsAdded'>
+                <div>PRODUCTO</div>
+                <div>UNIDADES</div>
+                <div>PRECIO POR UNIDAD</div>
+                <div>SUBTOTAL</div>
+            </div>
+
+            {productsInCart === 0 && 
+                <div className='emptyCart'>
+                    <h2>El carrito está vacio</h2>
+                    <Link to="/" className='returnToBuy'>Volver a comprar</Link>
+                </div>
+            }
+
+            {cart.map(prod => 
+        
+                <div key={prod.id} className="productContainer">
+
+                    <div className='cartProduct'>
+                        <h3>
+                            {prod.name}
+                        </h3> 
+                    </div>
+
+                    <div className='cartQuantity'>
+                        <h3>
+                          {prod.quantity}
+                        </h3> 
+                    </div>
+
+                    <div className='priceCartProduct'>
+                        <h3>
+                            {prod.price} $
+                        </h3> 
+                    </div>
+
+                    <div className='finalPriceProduct'>
+                        <h3>
+                            {prod.price * prod.quantity} $
+                        </h3> 
+                    </div>
+
+                    <div className='cartButton'>
+                        <button onClick={() => removeItem(prod.id)}>Quitar del carrito</button>
+                    </div>
+                </div>
+            )}  
+
+            <div className='cartOrder'>
+
+                <div> 
+                    <h2>
+                        Productos agregados: {productsInCart}
+                    </h2>
+
+                    <h2>
+                        Total a pagar: {finalPrice} $
+                    </h2>
+                </div>
+
+                {productsInCart > 0 ? 
+                
+                    <div className='btnsContainerFinishBuy'>
+                        <button className='clearCartBtn' onClick={() => clearCart()}>Vaciar Carrito</button>
+
+                        <Link to='/checkout' className='checkoutBtn'>Comprar</Link>
+
+                    </div> 
+                
+                : <></>}
+            
+
+                
+
+            </div>
+
         </div>
+
+        
+        
     )
+
 }
 
 export default CartDetail
