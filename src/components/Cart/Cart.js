@@ -13,7 +13,7 @@ const CartDetail = ()=>{
 
     return (
 
-        <div className='cart'>
+        <div className='cartStyle'>
 
             <div className='productsAdded'>
                 <div>PRODUCTO</div>
@@ -25,7 +25,7 @@ const CartDetail = ()=>{
             {productsInCart === 0 && 
                 <div className='emptyCart'>
                     <h2>El carrito está vacio</h2>
-                    <Link to="/" className='returnToBuy'>Volver a comprar</Link>
+                    <Link to="/" className='return'>Volver a comprar</Link>
                 </div>
             }
 
@@ -33,19 +33,19 @@ const CartDetail = ()=>{
         
                 <div key={prod.id} className="productContainer">
 
-                    <div className='cartProduct'>
+                    <div>
                         <h3>
                             {prod.name}
                         </h3> 
                     </div>
 
-                    <div className='cartQuantity'>
+                    <div>
                         <h3>
                           {prod.quantity}
                         </h3> 
                     </div>
 
-                    <div className='priceCartProduct'>
+                    <div>
                         <h3>
                             {prod.price} $
                         </h3> 

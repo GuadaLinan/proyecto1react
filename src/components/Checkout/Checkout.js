@@ -132,8 +132,8 @@ const Checkout = () => {
     if(load){
         
         return (
-            <div className=''>
-                <h1 className='checkoutTitle'>Se esta generando la orden de compra ... </h1>
+            <div>
+                <h1 className='checkoutTitles'>Orden de compra en proceso... </h1>
             </div>  
         )
         
@@ -143,21 +143,21 @@ const Checkout = () => {
         
         return (
 
-            <div className='finalBuyContainer'>
+            <div className='orderContainer'>
     
-                <h1 className='confirmBuyTitle'>La orden fue creada correctamente</h1>
+                <h1 className='orderTitle'>La orden fue creada correctamente</h1>
     
-                <div className='containerInfoOrder'>
+                <div className='containerDataOrder'>
                         
-                    <h2 className='buyInfo'>Id de la compra: {dataOrder.orderId}</h2>
+                    <h2 className='buyerInfo'>Id de la compra: {dataOrder.orderId}</h2>
     
-                    <h2 className='buyInfo'>Cliente: {dataOrder.name} {dataOrder.surname}</h2>
+                    <h2 className='buyerInfo'>Cliente: {dataOrder.name} {dataOrder.surname}</h2>
     
-                    <h2 className='buyInfo'>Teléfono: {dataOrder.phone}</h2>
+                    <h2 className='buyerInfo'>Teléfono: {dataOrder.phone}</h2>
     
-                    <h2 className='buyInfo'>Dirección: {dataOrder.address}</h2>
+                    <h2 className='buyerInfo'>Dirección: {dataOrder.address}</h2>
     
-                    <h2 className='buyInfo'>Total a pagar: {dataOrder.total}$</h2>
+                    <h2 className='buyerInfo'>Total a pagar: {dataOrder.total}$</h2>
     
                     <Link to='/'   className='returnToHomeBtn'>Volver a comprar</Link>
     
@@ -171,9 +171,9 @@ const Checkout = () => {
         
         <div className="checkoutContainer">
 
-            <h1 className="checkoutTitle">Comprar</h1>
+            <h1 className="checkoutTitles">Realizar compra</h1>
 
-            <form className="formOrder" onSubmit={handleSubmit}>
+            <form className="formCheckout" onSubmit={handleSubmit}>
 
                 <input type="text" name="name" placeholder="Ingrese su nombre" onChange={handleChange} value={dataOrder.name}></input>
 
@@ -183,7 +183,7 @@ const Checkout = () => {
 
                 <input type="text" name="address"  placeholder="Ingrese su dirección" onChange={handleChange} value={dataOrder.address}></input>
 
-                <button className="pucharseOrder" onClick={createOrder}>Generar orden de compra</button>
+                <button onClick={createOrder}>Generar orden de compra</button>
 
             </form>
 

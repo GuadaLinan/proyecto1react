@@ -1,4 +1,4 @@
-.cart{
+.cartStyle{
     color: black;
     min-height: 600px;
     width: 100%;
@@ -7,11 +7,13 @@
 
 .productContainer{
     display: flex;
+    font-family: NunitoNormal;
 }
 
 .productsAdded{
     display: flex;
     height: 40px;
+    font-family: NunitoImportant;
     border-bottom: 2px #5265c4 solid;
 }
 
@@ -39,7 +41,7 @@
     margin-top: 30px;
 }
 
-.returnToBuy{
+.return{
     background-color: #5265c4;
     text-decoration: none;
     color: white;
@@ -77,8 +79,8 @@
     height: 50px;
     width: 150px;
     color: white;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 1rem;
+    font-family: NunitoImportant;
     background-color: #EE7752;
     border: none;
     border-radius: 10px;
