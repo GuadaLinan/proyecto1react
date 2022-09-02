@@ -6,11 +6,11 @@ const Item = ({ name, thumbnail, price, id }) => {
   
     return (
       <article className="productCard">
-        <img className="productCardImg" src={thumbnail} alt="" />
-        <h3 className="productCardName">{name}</h3>
-        <span className="productCardPrice">${price}</span>
+        <img src={thumbnail} alt="" />
+        <h3 className="productName">{name}</h3>
+        <span className="productPrice">${price}</span>
         <footer className='ItemFooter'>
-                <Link to={`/detail/${id}`} className='Option ButtonDetail'>Ver detalle</Link>
+                <Link to={`/detail/${id}`} className='detailButton'>Ver detalle</Link>
         </footer>
       </article>
     );

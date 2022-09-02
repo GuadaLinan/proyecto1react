@@ -2,19 +2,19 @@
     text-align: center;
   }
   
-  .productCardName {
+  .productName {
     font-size: 1.6rem;
     color: #10152f;
     font-family: NunitoImportant;
   }
 
-  .productCardPrice {
+  .productPrice {
     font-size: 1.3rem;
     color: #0a0e1e;
     font-family: NunitoNormal;
   }
 
-  .Option {
+  .detailButton {
     text-decoration: none;
     border-radius: 25;
     margin-top: 20px;

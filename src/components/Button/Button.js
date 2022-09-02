@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import './Button.css'
 
 const Button = ({children}) => {
 
@@ -25,7 +24,7 @@ const Button = ({children}) => {
 
     return (
 
-        <button className='botonesNav' id='button'>{children}</button>
+        <button>{children}</button>
 
     )
 

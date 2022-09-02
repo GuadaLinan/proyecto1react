@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-// import { getProductById } from "../data/data"
 import ItemDetail from "../ItemDetail/ItemDetail"
 import './ItemDetailContainer.css'
 import { useParams } from "react-router-dom"
@@ -28,7 +27,7 @@ const ItemDetailContainer = () => {
     },[productListId])
 
     return (
-        <div className="Detalle">
+        <div className="detalle">
             {loading ? <h1 className="cargarProductos">Cargando...</h1> : <ItemDetail {...productList} />}
         </div>
     )

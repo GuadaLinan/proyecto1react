@@ -21,23 +21,23 @@ const ItemDetail = ({ id, name, thumbnail, category, description, price, stock }
     const productQuantity = getProductQuantity(id)
 
     return (
-        <article className="CardItem">
-            <header className="Header">
-                <h2 className="ItemHeader">
+        <article className="card">
+            <header>
+                <h2 className="headerItem">
                     {name}
                 </h2>
             </header>
             <div className='centrar'>
-                <img src={thumbnail} alt={name} className="ItemImg"/>
+                <img src={thumbnail} alt={name} className="productImg"/>
             </div>
             <section>
-                <p className="Info">
+                <p className="productInfo">
                     Categoria: {category}
                 </p>
-                <p className="Info">
+                <p className="productInfo">
                     Descripción: {description}
                 </p>
-                <p className="Info">
+                <p className="productInfo">
                     Precio: {price}
                 </p>
             </section>           
@@ -46,7 +46,7 @@ const ItemDetail = ({ id, name, thumbnail, category, description, price, stock }
                     quantityToAdd === 0 ? (
                         <ItemCount onAdd={handleOnAdd} stock={stock} initial={productQuantity}/>
                     ) : (
-                        <Link to='/Cart'>Finalizar compra</Link>
+                        <Link className='buyButton' to='/Cart'>Finalizar compra</Link>
                     )
                 }
             </footer>

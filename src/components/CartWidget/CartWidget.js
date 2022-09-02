@@ -13,7 +13,7 @@ const CartWidget = () => {
                 alt="CartWidget"
                 width="38"
             />
-            <span>{quantity}</span>
+            <span className='cartNumber'>{quantity}</span>
         </div>
     )
 }

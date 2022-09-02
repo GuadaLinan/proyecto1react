@@ -40,7 +40,7 @@ const ItemListContainer = () => {
     return (
         <div className='itemListContainer' onClick={() => console.log('click en itemlistcontainer')}>
         <h1>{`${categoryId || ''}`}</h1>         
-        <h2 className="itemLC-title">Novedades</h2>
+        <h2 className="LContainerTitle">Novedades</h2>
             <ItemList products={products} />
         </div>
     )
